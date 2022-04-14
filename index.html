@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Images</title>
+    <style>
+        img {
+            max-width: 100%;
+            display: block;
+        }
+    </style>
 </head>
-<body>
 
+<body>
+    <!-- add a srcset to an image tag and with the value being all the possible images that the browser can pick from -->
+    <img srcset="img/eggs-600.jpg, img/eggs-900.jpg" src="img/eggs-900.jpg" alt="Easter Eggs">
+    <!-- note: this is only loading the first image as the browser doesn't have enough info to decide which image is best -->
+
+    <!-- give the browser more info with width descriptors -->
+    <img srcset="img/eggs-600.jpg 600w, img/eggs-900.jpg 900w" src="img/eggs-900.jpg" alt="Easter Eggs">
+
+    <!-- use the sized attribute along with the srcset attribute to give the browser even more info on which image to pick from -->
+    <img srcset="img/eggs-600.jpg 600w, img/eggs-900.jpg 900w" sizes="(max-width:600px) 600px, 900px" src="img/eggs-900.jpg" alt="Easter Eggs">
+    <!-- we can use a media query in the sizes attribute to fetch and load the image to a size parameter based on the viewport width. -->
 </body>
+
 </html>
